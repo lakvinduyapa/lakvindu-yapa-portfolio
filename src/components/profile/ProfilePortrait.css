@@ -22,6 +22,8 @@
   overflow: hidden;
   isolation: isolate;
   background: var(--ink);
+  touch-action: none;
+  overscroll-behavior: contain;
   -webkit-user-drag: none;
   /* Independent, broad edge fades avoid an enclosing oval around the subject. */
   -webkit-mask-image:
@@ -42,6 +44,8 @@
   object-fit: cover;
   object-position: 50% 50%;
   user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
 }
 
 .portrait__composition::after {
@@ -56,6 +60,7 @@
   position: absolute;
   inset: 0;
   opacity: 0;
+  pointer-events: none;
   -webkit-mask-image: radial-gradient(circle at calc(var(--scan-x) * 1px) calc(var(--scan-y) * 1px), #000 calc(var(--scan-radius) * .62px), rgba(0,0,0,.82) calc(var(--scan-radius) * .76px), rgba(0,0,0,.3) calc(var(--scan-radius) * .91px), transparent calc(var(--scan-radius) * 1px));
   mask-image: radial-gradient(circle at calc(var(--scan-x) * 1px) calc(var(--scan-y) * 1px), #000 calc(var(--scan-radius) * .62px), rgba(0,0,0,.82) calc(var(--scan-radius) * .76px), rgba(0,0,0,.3) calc(var(--scan-radius) * .91px), transparent calc(var(--scan-radius) * 1px));
 }
@@ -103,9 +108,7 @@
 
 @media (hover: none), (pointer: coarse) {
   .portrait { cursor: pointer; }
-  /* This is the only area that owns a touch gesture; the rest of About still scrolls. */
-  .portrait__composition { touch-action: none; overscroll-behavior: contain; }
-  .portrait__composition img { -webkit-user-drag: none; user-drag: none; }
+  .portrait__composition img { user-drag: none; }
   .portrait[data-dragging='true'] { cursor: grabbing; }
   .portrait__hint-hover { display: none; }
   .portrait__hint-touch { display: inline; }

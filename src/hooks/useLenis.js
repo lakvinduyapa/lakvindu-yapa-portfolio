@@ -38,6 +38,7 @@ export function useLenis() {
 
     let lenis
     let update
+    let portraitGestureLocked = false
     if (!reducedMotion) {
       lenis = new Lenis({
         duration: 1.05,
@@ -49,6 +50,16 @@ export function useLenis() {
       lenis.on('scroll', ScrollTrigger.update)
       gsap.ticker.add(update)
       gsap.ticker.lagSmoothing(0)
+    }
+
+    const onPortraitGesture = (event) => {
+      if (event.detail?.locked) {
+        portraitGestureLocked = true
+        lenis?.stop()
+      } else if (portraitGestureLocked) {
+        portraitGestureLocked = false
+        lenis?.start()
+      }
     }
 
     const navigateToSection = (event) => {
@@ -77,6 +88,7 @@ export function useLenis() {
       })
     }
     window.addEventListener('portfolio:navigate', navigateToSection)
+    window.addEventListener('portfolio:portrait-gesture', onPortraitGesture)
 
     return () => {
       active = false
@@ -90,6 +102,8 @@ export function useLenis() {
       window.removeEventListener('orientationchange', refreshAfterRotation)
       visualViewport?.removeEventListener('resize', refreshAfterRotation)
       window.removeEventListener('portfolio:navigate', navigateToSection)
+      window.removeEventListener('portfolio:portrait-gesture', onPortraitGesture)
+      if (portraitGestureLocked) lenis?.start()
       lenis?.destroy()
       if (update) gsap.ticker.remove(update)
       gsap.ticker.lagSmoothing(500, 33)

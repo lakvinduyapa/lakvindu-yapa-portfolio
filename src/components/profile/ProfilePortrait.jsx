@@ -23,6 +23,8 @@ export default function ProfilePortrait() {
     let pointer = null
     let scanPoint = { x: 0.5, y: 0.5 }
     let activePointerId = null
+    let activeTouchId = null
+    let pointerDrivenGesture = false
     let gestureStart = null
     let moved = false
     let startedPinned = false
@@ -31,6 +33,9 @@ export default function ProfilePortrait() {
     const context = gsap.context(() => {}, element)
     const xTo = gsap.quickTo(element, '--scan-x', { duration: 0.22, ease: 'power3.out' })
     const yTo = gsap.quickTo(element, '--scan-y', { duration: 0.22, ease: 'power3.out' })
+    const setScrollLock = (locked) => {
+      window.dispatchEvent(new CustomEvent('portfolio:portrait-gesture', { detail: { locked } }))
+    }
 
     const place = (clientX, clientY, immediate = false) => {
       const rect = composition.getBoundingClientRect()
@@ -105,6 +110,7 @@ export default function ProfilePortrait() {
       if (event.pointerType === 'mouse' || !event.isPrimary || !ready) return
       if (event.cancelable) event.preventDefault()
       activePointerId = event.pointerId
+      pointerDrivenGesture = true
       gestureStart = { x: event.clientX, y: event.clientY, time: performance.now() }
       moved = false
       startedPinned = pinned
@@ -114,13 +120,14 @@ export default function ProfilePortrait() {
       dragging = true
       inside = false
       place(event.clientX, event.clientY, true)
-      element.setPointerCapture?.(event.pointerId)
+      composition.setPointerCapture?.(event.pointerId)
+      setScrollLock(true)
       render()
     }
 
     const onPointerMove = (event) => {
       if (event.pointerType !== 'mouse') {
-        if (!dragging || event.pointerId !== activePointerId) return
+        if (!dragging || !pointerDrivenGesture || event.pointerId !== activePointerId) return
         if (event.cancelable) event.preventDefault()
         if (gestureStart && Math.hypot(event.clientX - gestureStart.x, event.clientY - gestureStart.y) > 7) moved = true
         place(event.clientX, event.clientY)
@@ -134,13 +141,15 @@ export default function ProfilePortrait() {
     }
 
     const finishTouch = (event, cancelled = false) => {
-      if (!dragging || event.pointerId !== activePointerId) return
+      if (!dragging || (pointerDrivenGesture && event.pointerId !== activePointerId)) return
       if (!cancelled) place(event.clientX, event.clientY)
-      if (element.hasPointerCapture?.(event.pointerId)) element.releasePointerCapture(event.pointerId)
+      if (pointerDrivenGesture && composition.hasPointerCapture?.(activePointerId)) composition.releasePointerCapture(activePointerId)
       const elapsed = gestureStart ? performance.now() - gestureStart.time : Infinity
       const isTap = !cancelled && !moved && elapsed < 550
       dragging = false
       activePointerId = null
+      activeTouchId = null
+      pointerDrivenGesture = false
       gestureStart = null
       inside = false
       if (isTap) {
@@ -153,6 +162,7 @@ export default function ProfilePortrait() {
         setSelected(false)
       }
       suppressClickUntil = performance.now() + 500
+      setScrollLock(false)
       render()
     }
 
@@ -164,6 +174,47 @@ export default function ProfilePortrait() {
       pointer = null
       render()
     }
+
+    const findActiveTouch = (touches) => Array.from(touches).find((touch) => touch.identifier === activeTouchId)
+    const onTouchStart = (event) => {
+      const touch = event.changedTouches[0]
+      if (!touch || !ready) return
+      activeTouchId = touch.identifier
+      // Modern Safari also sends Pointer Events. In that case, this listener only
+      // identifies the touch for the non-passive touchmove scroll guard below.
+      if (dragging) return
+
+      pointerDrivenGesture = false
+      gestureStart = { x: touch.clientX, y: touch.clientY, time: performance.now() }
+      moved = false
+      startedPinned = pinned
+      pinned = false
+      fullPinned = false
+      setSelected(false)
+      dragging = true
+      inside = false
+      place(touch.clientX, touch.clientY, true)
+      setScrollLock(true)
+      render()
+    }
+    const onTouchMove = (event) => {
+      if (!dragging || activeTouchId === null) return
+      const touch = findActiveTouch(event.touches)
+      if (!touch) return
+      // iOS fallback: scoped to the composition and only while its gesture is active.
+      if (event.cancelable) event.preventDefault()
+      if (pointerDrivenGesture) return
+      if (gestureStart && Math.hypot(touch.clientX - gestureStart.x, touch.clientY - gestureStart.y) > 7) moved = true
+      place(touch.clientX, touch.clientY)
+    }
+    const onTouchEnd = (event, cancelled = false) => {
+      const touch = findActiveTouch(event.changedTouches)
+      if (!touch) return
+      activeTouchId = null
+      if (pointerDrivenGesture && !cancelled) return
+      finishTouch({ clientX: touch.clientX, clientY: touch.clientY, pointerId: activePointerId }, cancelled)
+    }
+    const onTouchCancel = (event) => onTouchEnd(event, true)
 
     const onClick = (event) => {
       if (!ready || performance.now() < suppressClickUntil) return
@@ -178,16 +229,19 @@ export default function ProfilePortrait() {
       render()
     }
     const onBlur = () => {
-      if (activePointerId !== null && element.hasPointerCapture?.(activePointerId)) {
-        element.releasePointerCapture(activePointerId)
+      if (activePointerId !== null && composition.hasPointerCapture?.(activePointerId)) {
+        composition.releasePointerCapture(activePointerId)
       }
       dragging = false
       activePointerId = null
+      activeTouchId = null
+      pointerDrivenGesture = false
       pinned = false
       fullPinned = false
       setSelected(false)
       inside = false
       pointer = null
+      setScrollLock(false)
       render()
     }
     const onLoad = () => {
@@ -197,13 +251,20 @@ export default function ProfilePortrait() {
       render()
     }
     const onError = () => {
+      if (activePointerId !== null && composition.hasPointerCapture?.(activePointerId)) {
+        composition.releasePointerCapture(activePointerId)
+      }
       ready = false
       dragging = false
+      activePointerId = null
+      activeTouchId = null
+      pointerDrivenGesture = false
       pinned = false
       fullPinned = false
       setSelected(false)
       element.dataset.ready = 'false'
       element.setAttribute('aria-disabled', 'true')
+      setScrollLock(false)
       render()
     }
     const onScroll = () => {
@@ -222,12 +283,16 @@ export default function ProfilePortrait() {
     }
     const onVisibility = () => { if (document.hidden) onBlur() }
 
-    element.addEventListener('pointerenter', onPointerEnter)
-    element.addEventListener('pointerdown', onPointerDown, { passive: false })
-    element.addEventListener('pointermove', onPointerMove, { passive: false })
-    element.addEventListener('pointerup', onPointerUp)
-    element.addEventListener('pointerleave', onPointerLeave)
-    element.addEventListener('pointercancel', onPointerCancel)
+    composition.addEventListener('pointerenter', onPointerEnter)
+    composition.addEventListener('pointerdown', onPointerDown, { passive: false })
+    composition.addEventListener('pointermove', onPointerMove, { passive: false })
+    composition.addEventListener('pointerup', onPointerUp)
+    composition.addEventListener('pointerleave', onPointerLeave)
+    composition.addEventListener('pointercancel', onPointerCancel)
+    composition.addEventListener('touchstart', onTouchStart, { passive: true })
+    composition.addEventListener('touchmove', onTouchMove, { passive: false })
+    composition.addEventListener('touchend', onTouchEnd)
+    composition.addEventListener('touchcancel', onTouchCancel)
     element.addEventListener('click', onClick)
     element.addEventListener('blur', onBlur)
     image.addEventListener('load', onLoad)
@@ -240,12 +305,18 @@ export default function ProfilePortrait() {
     if (image.complete) onLoad()
 
     return () => {
-      element.removeEventListener('pointerenter', onPointerEnter)
-      element.removeEventListener('pointerdown', onPointerDown)
-      element.removeEventListener('pointermove', onPointerMove)
-      element.removeEventListener('pointerup', onPointerUp)
-      element.removeEventListener('pointerleave', onPointerLeave)
-      element.removeEventListener('pointercancel', onPointerCancel)
+      if (activePointerId !== null && composition.hasPointerCapture?.(activePointerId)) composition.releasePointerCapture(activePointerId)
+      setScrollLock(false)
+      composition.removeEventListener('pointerenter', onPointerEnter)
+      composition.removeEventListener('pointerdown', onPointerDown)
+      composition.removeEventListener('pointermove', onPointerMove)
+      composition.removeEventListener('pointerup', onPointerUp)
+      composition.removeEventListener('pointerleave', onPointerLeave)
+      composition.removeEventListener('pointercancel', onPointerCancel)
+      composition.removeEventListener('touchstart', onTouchStart)
+      composition.removeEventListener('touchmove', onTouchMove)
+      composition.removeEventListener('touchend', onTouchEnd)
+      composition.removeEventListener('touchcancel', onTouchCancel)
       element.removeEventListener('click', onClick)
       element.removeEventListener('blur', onBlur)
       image.removeEventListener('load', onLoad)
