@@ -1,0 +1,119 @@
+/* Decorative scenery only: all layout and typography remain in the existing section styles. */
+.work .work__art {
+  top: 36px;
+  right: -12px;
+  width: min(82vw, 1040px);
+  height: 650px;
+  opacity: .8;
+  -webkit-mask-image: linear-gradient(to right, transparent 8%, rgba(0,0,0,.18) 38%, #000 74%, transparent), linear-gradient(to bottom, transparent, #000 18%, #000 55%, transparent 94%);
+  mask-image: linear-gradient(to right, transparent 8%, rgba(0,0,0,.18) 38%, #000 74%, transparent), linear-gradient(to bottom, transparent, #000 18%, #000 55%, transparent 94%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.work .work__art img, .experience .experience__art img {
+  height: calc(100% + 24px);
+  margin-top: -12px;
+  object-fit: cover;
+}
+
+.work .work__art::after, .experience .experience__art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.work .work__art::after {
+  /* Keep the heading's left side and the supporting paragraph in quiet black. */
+  background: linear-gradient(90deg, var(--ink), transparent 72%), linear-gradient(to bottom, transparent 35%, rgba(10,10,9,.78) 70%, var(--ink));
+}
+
+.experience .experience__art {
+  left: auto;
+  right: -32px;
+  bottom: auto;
+  width: min(64vw, 920px);
+  height: 500px;
+  opacity: .82;
+  -webkit-mask-image: linear-gradient(to right, transparent 2%, rgba(0,0,0,.14) 18%, rgba(0,0,0,.72) 40%, #000 58%, #000 96%, transparent), linear-gradient(to bottom, transparent, #000 20%, #000 72%, transparent);
+  mask-image: linear-gradient(to right, transparent 2%, rgba(0,0,0,.14) 18%, rgba(0,0,0,.72) 40%, #000 58%, #000 96%, transparent), linear-gradient(to bottom, transparent, #000 20%, #000 72%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.experience .experience__art--work {
+  top: calc(var(--experience-art-top, 360px) + 140px);
+  /* A small lift in image presence is constrained by its text-safe overlay below. */
+  opacity: .91;
+}
+.experience .experience__art--education {
+  top: calc(var(--education-art-top, 1060px) + 45px);
+  right: -56px;
+}
+.experience .experience__art img {
+  position: relative;
+  left: 14%;
+  width: 112%;
+  max-width: none;
+}
+.experience .experience__art--work img { object-position: center 68%; }
+.experience .experience__art--education img { left: 24%; object-position: left 68%; }
+.experience .experience__art::after {
+  /* Quiet the timeline/content column while leaving the far-right environment legible. */
+  background:
+    radial-gradient(ellipse 46% 66% at 40% 42%, rgba(10,10,9,.9), rgba(10,10,9,.55) 54%, transparent 100%),
+    linear-gradient(to right, var(--ink) 2%, rgba(10,10,9,.82) 28%, rgba(10,10,9,.35) 55%, rgba(10,10,9,.06) 80%, transparent),
+    linear-gradient(to bottom, var(--ink), transparent 30%, transparent 72%, var(--ink));
+}
+
+.experience .experience__art--work::after {
+  /* Keep all experience copy in a local black pocket; release only the lower-right desk field. */
+  background:
+    radial-gradient(ellipse 49% 66% at 39% 39%, rgba(10,10,9,.98), rgba(10,10,9,.78) 57%, transparent 100%),
+    linear-gradient(to right, var(--ink) 2%, rgba(10,10,9,.91) 30%, rgba(10,10,9,.53) 55%, rgba(10,10,9,.05) 79%, transparent),
+    linear-gradient(to bottom, var(--ink), transparent 29%, transparent 70%, var(--ink));
+}
+
+.experience .experience__art--education::after {
+  /* The shifted architecture stays out of the degree block and gathers in the lower-right. */
+  background:
+    radial-gradient(ellipse 52% 64% at 36% 31%, rgba(10,10,9,.99), rgba(10,10,9,.82) 56%, transparent 100%),
+    linear-gradient(to right, var(--ink) 2%, rgba(10,10,9,.92) 32%, rgba(10,10,9,.54) 58%, rgba(10,10,9,.08) 82%, transparent),
+    linear-gradient(to bottom, var(--ink), rgba(10,10,9,.46) 23%, transparent 48%, transparent 77%, var(--ink));
+}
+
+@media (max-width: 1200px) and (min-width: 769px) {
+  .work .work__art { height: 530px; opacity: .65; }
+  .experience .experience__art { right: -20px; width: 66vw; height: 430px; opacity: .62; }
+  .experience .experience__art--work { opacity: .7; }
+  .experience .experience__art--education { right: -34px; }
+}
+
+@media (max-width: 768px) {
+  .work .work__art { top: 48px; right: -8%; width: 100%; height: 410px; opacity: .4; }
+  .work .work__art img { object-position: 80% 50%; }
+  .experience .experience__art {
+    left: auto;
+    right: -25%;
+    width: 100%;
+    height: 410px;
+    opacity: .16;
+    -webkit-mask-image: linear-gradient(to right, transparent, rgba(0,0,0,.28) 35%, #000 72%, transparent), linear-gradient(to bottom, transparent, #000 28%, #000 68%, transparent);
+    mask-image: linear-gradient(to right, transparent, rgba(0,0,0,.28) 35%, #000 72%, transparent), linear-gradient(to bottom, transparent, #000 28%, #000 68%, transparent);
+  }
+  .experience .experience__art--work { top: calc(var(--experience-art-top, 600px) + 80px); }
+  .experience .experience__art--education { top: calc(var(--education-art-top, 1400px) + 40px); right: -28%; }
+  .experience .experience__art--work img { object-position: 22% 65%; }
+  .experience .experience__art--education img { object-position: 8% 58%; }
+  .experience .experience__art::after {
+    background:
+      radial-gradient(ellipse 72% 72% at 35% 42%, rgba(10,10,9,.97), rgba(10,10,9,.7) 62%, transparent),
+      linear-gradient(to right, var(--ink), rgba(10,10,9,.88) 58%, transparent),
+      linear-gradient(to bottom, var(--ink), transparent 42%, var(--ink));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work .work__art img, .experience .experience__art img { transform: none !important; }
+}

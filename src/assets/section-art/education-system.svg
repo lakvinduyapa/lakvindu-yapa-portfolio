@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" fill="none">
+  <defs>
+    <linearGradient id="edu-stroke" x1="170" y1="118" x2="860" y2="648" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0eee7" stop-opacity=".08"/>
+      <stop offset=".58" stop-color="#c8ff4d" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#f0eee7" stop-opacity=".08"/>
+    </linearGradient>
+    <radialGradient id="edu-glow" cx="0" cy="0" r="1" gradientTransform="translate(610 350) rotate(90) scale(286)">
+      <stop stop-color="#c8ff4d" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#c8ff4d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="610" cy="350" rx="326" ry="286" fill="url(#edu-glow)"/>
+  <g stroke="url(#edu-stroke)">
+    <path d="M190 304L500 164L810 304L500 444L190 304Z"/>
+    <path d="M304 356V472C410 548 592 548 696 472V356"/>
+    <path d="M810 304V468"/><path d="M794 468H826L810 510L794 468Z"/>
+    <path d="M214 582H786M258 548H742M310 516H690"/>
+  </g>
+  <g stroke="#f0eee7" stroke-opacity=".13">
+    <path d="M500 164V444M346 234L654 374M654 234L346 374"/>
+    <path d="M252 622H748M294 654H706"/>
+    <path d="M176 582L500 704L824 582"/>
+    <path d="M214 582L500 680L786 582"/>
+  </g>
+  <g fill="#c8ff4d">
+    <circle cx="500" cy="164" r="4"/><circle cx="190" cy="304" r="3"/><circle cx="810" cy="304" r="3"/>
+    <circle cx="304" cy="472" r="3"/><circle cx="696" cy="472" r="3"/><circle cx="810" cy="510" r="3"/>
+  </g>
+  <circle cx="500" cy="304" r="74" stroke="#c8ff4d" stroke-opacity=".26"/>
+  <circle cx="500" cy="304" r="5" fill="#c8ff4d"/>
+</svg>

@@ -1,0 +1,125 @@
+import lmsHero from '../assets/projects/private-tutoring-lms/lms-hero.webp'
+import lmsAdmin from '../assets/projects/private-tutoring-lms/lms-admin.webp'
+import liyaAdminDashboard from '../assets/projects/liya-savi/admin-dashboard.jpg'
+import liyaAdminProducts from '../assets/projects/liya-savi/admin-product-management.jpg'
+import liyaLandingFirst from '../assets/projects/liya-savi/landing-first-half.jpg'
+import liyaLandingSecond from '../assets/projects/liya-savi/landing-second-half.jpg'
+import liyaCatalogue from '../assets/projects/liya-savi/product-catalogue.jpg'
+import liyaProductView from '../assets/projects/liya-savi/product-view.jpg'
+
+export const projects = [
+  {
+    name: 'Private Tutoring LMS',
+    slug: 'private-tutoring-lms',
+    category: 'Freelance · Full-Stack',
+    status: 'Completed',
+    role: 'Solo Full-Stack Developer',
+    description:
+      'Designed and developed a full-stack LMS that brings student management, courses, lessons, assignments, learning activities and academic operations into one centralized platform.',
+    context:
+      'A real client-requested platform for managing and delivering educational content in a private tuition environment.',
+    problem: null,
+    solution: null,
+    features: ['Student Management', 'Courses & Lessons', 'Assignments', 'Learning Activities', 'Progress Tracking', 'Admin Operations'],
+    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Cloudinary'],
+    frontend: ['React', 'Tailwind CSS'],
+    backend: ['TypeScript'],
+    database: ['PostgreSQL'],
+    services: ['Vercel', 'Render', 'Cloudinary'],
+    screenshots: [
+      { src: lmsHero, alt: 'Supun Alexander ICT Academy LMS landing interface' },
+      { src: lmsAdmin, alt: 'Supun Alexander ICT Academy administrative dashboard' },
+    ],
+    githubUrl: 'https://github.com/lakvinduyapa/supun-alexander-LMS',
+    liveUrl: 'https://supunalexanderict.lk/',
+    year: null,
+    caseStudy: null,
+    tone: '#c8ff4d',
+    visual: 'learning',
+  },
+  {
+    name: 'NKS Clothing',
+    slug: 'nks-clothing',
+    category: 'Freelance · Full-Stack · E-Commerce',
+    status: 'Ongoing Development',
+    role: 'Solo Full-Stack Developer',
+    description:
+      'A clothing showcase and ordering platform developed for a European startup clothing brand. Customers can explore the collection and place orders through WhatsApp, while the owner manages products, inventory and sales through an administrative dashboard.',
+    context: 'A solo freelance project requested by a client.',
+    problem: null,
+    solution: null,
+    features: [],
+    technologies: ['React', 'Tailwind CSS', 'TypeScript', 'Supabase', 'Cloudinary'],
+    frontend: ['React', 'Tailwind CSS'],
+    backend: ['TypeScript'],
+    database: ['Supabase'],
+    services: ['Cloudinary'],
+    screenshots: [],
+    githubUrl: 'https://github.com/lakvinduyapa/nks-clothing-store',
+    liveUrl: null,
+    year: null,
+    caseStudy: null,
+    tone: '#f2c8ff',
+    visual: 'commerce',
+  },
+  {
+    name: 'Cinnamon Care',
+    slug: 'cinnamon-care',
+    category: 'Freelance · Full-Stack · AI Integration',
+    status: 'Ongoing',
+    role: 'Full-Stack Developer',
+    description:
+      'Cinnamon Care is a web application that helps users identify cinnamon plant disorders from uploaded images and provides relevant information, recommendations and products for managing the identified disorder.',
+    context:
+      'A freelance project requested by an AI/ML undergraduate. The client supplied the machine-learning model; the work covers full-stack development and integration of that model into an accessible user-facing application.',
+    problem: null,
+    solution: null,
+    features: [],
+    technologies: ['React', 'Tailwind CSS', 'Python', 'PostgreSQL', 'Cloudinary', 'ML Model Integration'],
+    frontend: ['React', 'Tailwind CSS'],
+    backend: ['Python'],
+    database: ['PostgreSQL'],
+    services: ['Cloudinary', 'Machine Learning Model Integration'],
+    screenshots: [],
+    githubUrl: null,
+    liveUrl: null,
+    year: null,
+    caseStudy: null,
+    tone: '#70b7ff',
+    visual: 'diagnostic',
+  },
+  {
+    name: 'Liya Savi',
+    slug: 'liya-savi',
+    descriptor: 'Women Empowerment Marketplace',
+    category: 'Full-Stack · E-Commerce · University Project',
+    status: 'Completed',
+    role: 'Solo Full-Stack Developer',
+    description:
+      'Liya Savi is a multilingual marketplace platform designed to help women entrepreneurs in Sri Lanka create digital storefronts, showcase their products and extend their potential market reach beyond traditional local channels.',
+    context:
+      'Developed as a final-year university project, informed by research into market visibility and access challenges affecting women entrepreneurs in Sri Lanka, including context associated with the Sri Jayawardenepura Kotte Divisional Secretariat.',
+    problem: null,
+    solution: null,
+    features: [],
+    technologies: ['React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'Cloudinary', 'i18next'],
+    frontend: ['React', 'Tailwind CSS'],
+    backend: ['Node.js', 'Express.js'],
+    database: ['MongoDB'],
+    services: ['Cloudinary', 'i18next'],
+    screenshots: [
+      { src: liyaLandingFirst, alt: 'Liya Savi marketplace landing page, first section' },
+      { src: liyaLandingSecond, alt: 'Liya Savi marketplace landing page, second section' },
+      { src: liyaCatalogue, alt: 'Liya Savi product catalogue interface' },
+      { src: liyaProductView, alt: 'Liya Savi product detail interface' },
+      { src: liyaAdminDashboard, alt: 'Liya Savi administrative dashboard' },
+      { src: liyaAdminProducts, alt: 'Liya Savi administrative product management interface' },
+    ],
+    githubUrl: 'https://github.com/lakvinduyapa/finalyearproject10899733',
+    liveUrl: null,
+    year: null,
+    caseStudy: null,
+    tone: '#ffd76a',
+    visual: 'marketplace',
+  },
+]

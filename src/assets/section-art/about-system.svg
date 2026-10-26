@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="about-line" x1="70" y1="180" x2="1110" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0eee7" stop-opacity=".08"/>
+      <stop offset=".55" stop-color="#c8ff4d" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#f0eee7" stop-opacity=".1"/>
+    </linearGradient>
+    <radialGradient id="about-glow" cx="0" cy="0" r="1" gradientTransform="translate(824 466) rotate(90) scale(266)">
+      <stop stop-color="#c8ff4d" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#c8ff4d" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="about-grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" stroke="#f0eee7" stroke-opacity=".07"/>
+    </pattern>
+  </defs>
+  <ellipse cx="824" cy="466" rx="330" ry="280" fill="url(#about-glow)"/>
+  <path d="M80 258C230 160 342 342 466 278C600 208 666 292 778 386" stroke="url(#about-line)"/>
+  <path d="M80 330C244 236 338 406 490 342C614 290 696 350 778 430" stroke="url(#about-line)" stroke-opacity=".65"/>
+  <path d="M80 402C246 318 358 454 506 408C632 368 702 404 778 474" stroke="url(#about-line)" stroke-opacity=".38"/>
+  <g fill="#c8ff4d">
+    <circle cx="80" cy="258" r="4"/><circle cx="466" cy="278" r="3"/><circle cx="778" cy="386" r="4"/>
+    <circle cx="80" cy="330" r="2"/><circle cx="490" cy="342" r="3"/><circle cx="778" cy="430" r="3"/>
+    <circle cx="80" cy="402" r="2"/><circle cx="506" cy="408" r="2"/><circle cx="778" cy="474" r="3"/>
+  </g>
+  <g transform="translate(778 210)">
+    <rect width="348" height="348" stroke="#c8ff4d" stroke-opacity=".34"/>
+    <rect x="42" y="42" width="264" height="264" fill="url(#about-grid)" stroke="#f0eee7" stroke-opacity=".14"/>
+    <path d="M0 116H348M0 232H348M116 0V348M232 0V348" stroke="#f0eee7" stroke-opacity=".1"/>
+    <path d="M42 174H306M174 42V306" stroke="#c8ff4d" stroke-opacity=".27"/>
+    <circle cx="174" cy="174" r="54" stroke="#c8ff4d" stroke-opacity=".32"/>
+    <circle cx="174" cy="174" r="5" fill="#c8ff4d"/>
+  </g>
+  <g stroke="#f0eee7" stroke-opacity=".12">
+    <path d="M778 558L940 720L1126 558"/><path d="M778 594L940 756L1126 594"/>
+    <path d="M940 558V790"/>
+  </g>
+</svg>

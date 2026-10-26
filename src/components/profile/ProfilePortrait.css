@@ -1,0 +1,118 @@
+.portrait {
+  --scan-x: 0;
+  --scan-y: 0;
+  --scan-radius: 0;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: center;
+  cursor: none;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.portrait__composition {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ink);
+  /* Independent, broad edge fades avoid an enclosing oval around the subject. */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, rgba(0,0,0,.22) 5%, rgba(0,0,0,.65) 13%, #000 28%, #000 72%, rgba(0,0,0,.65) 87%, rgba(0,0,0,.22) 95%, transparent),
+    linear-gradient(to bottom, transparent, rgba(0,0,0,.4) 6%, #000 22%, #000 62%, rgba(0,0,0,.7) 78%, rgba(0,0,0,.2) 92%, transparent);
+  mask-image:
+    linear-gradient(to right, transparent, rgba(0,0,0,.22) 5%, rgba(0,0,0,.65) 13%, #000 28%, #000 72%, rgba(0,0,0,.65) 87%, rgba(0,0,0,.22) 95%, transparent),
+    linear-gradient(to bottom, transparent, rgba(0,0,0,.4) 6%, #000 22%, #000 62%, rgba(0,0,0,.7) 78%, rgba(0,0,0,.2) 92%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.portrait__composition img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  user-select: none;
+}
+
+.portrait__composition::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--ink), transparent 18%, transparent 68%, var(--ink) 100%);
+}
+
+.portrait__digital {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  -webkit-mask-image: radial-gradient(circle at calc(var(--scan-x) * 1px) calc(var(--scan-y) * 1px), #000 calc(var(--scan-radius) * .62px), rgba(0,0,0,.82) calc(var(--scan-radius) * .76px), rgba(0,0,0,.3) calc(var(--scan-radius) * .91px), transparent calc(var(--scan-radius) * 1px));
+  mask-image: radial-gradient(circle at calc(var(--scan-x) * 1px) calc(var(--scan-y) * 1px), #000 calc(var(--scan-radius) * .62px), rgba(0,0,0,.82) calc(var(--scan-radius) * .76px), rgba(0,0,0,.3) calc(var(--scan-radius) * .91px), transparent calc(var(--scan-radius) * 1px));
+}
+
+.portrait[data-mode='full'] .portrait__digital {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.portrait__scanner {
+  position: absolute;
+  left: calc(var(--scan-x) * 1px);
+  top: calc(var(--scan-y) * 1px);
+  width: calc(var(--scan-radius) * 2px);
+  height: calc(var(--scan-radius) * 2px);
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(200,255,77,.18);
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgba(200,255,77,.045), inset 0 0 12px rgba(200,255,77,.025);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+
+.portrait[data-active='true'][data-mode='scan'] .portrait__scanner { opacity: 1; }
+.portrait__hint { display: block; margin-top: -12px; position: relative; color: var(--muted); font-size: 8px; opacity: 0; transition: color .35s ease, opacity .35s ease; }
+.portrait[data-ready='true'] .portrait__hint { opacity: .55; }
+.portrait[data-active='true'] .portrait__hint { color: #a6b78b; opacity: .65; }
+.portrait__hint-touch, .portrait__hint-keyboard { display: none; }
+.portrait:focus-visible { outline-offset: 8px; }
+.portrait:focus-visible .portrait__hint-hover, .portrait:focus-visible .portrait__hint-touch { display: none; }
+.portrait:focus-visible .portrait__hint-keyboard { display: inline; }
+
+@media (hover: hover) and (pointer: fine) {
+  /* Restrain the existing cursor only over this portrait; keep its tracking intact. */
+  body:has(.portrait:hover) .cursor {
+    width: 4px;
+    height: 4px;
+    margin: -2px 0 0 -2px;
+    background: rgba(200,255,77,.65);
+    box-shadow: 0 0 8px rgba(200,255,77,.12);
+  }
+  body:has(.portrait:hover) .cursor span { opacity: 0; }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .portrait { cursor: pointer; }
+  .portrait[data-dragging='true'] { cursor: grabbing; }
+  .portrait__hint-hover { display: none; }
+  .portrait__hint-touch { display: inline; }
+}
+
+@media (max-width: 768px) {
+  .portrait { cursor: pointer; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait__digital { -webkit-mask-image: none; mask-image: none; }
+  .portrait__scanner { display: none; }
+}

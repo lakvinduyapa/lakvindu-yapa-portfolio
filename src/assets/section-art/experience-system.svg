@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" fill="none">
+  <defs>
+    <linearGradient id="exp-stroke" x1="134" y1="104" x2="856" y2="654" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0eee7" stop-opacity=".08"/>
+      <stop offset=".64" stop-color="#c8ff4d" stop-opacity=".4"/>
+      <stop offset="1" stop-color="#f0eee7" stop-opacity=".08"/>
+    </linearGradient>
+    <radialGradient id="exp-glow" cx="0" cy="0" r="1" gradientTransform="translate(600 340) rotate(90) scale(280)">
+      <stop stop-color="#c8ff4d" stop-opacity=".1"/>
+      <stop offset="1" stop-color="#c8ff4d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="600" cy="340" rx="330" ry="280" fill="url(#exp-glow)"/>
+  <g stroke="url(#exp-stroke)">
+    <path d="M220 146H706L770 198V486H284L220 432V146Z"/>
+    <path d="M284 198H770M284 198V486M220 146L284 198"/>
+    <path d="M336 246H716V426H336Z"/>
+    <path d="M402 486V552M650 486V552M350 552H702"/>
+    <path d="M162 590L380 486H830L918 590H162Z"/>
+    <path d="M210 590L394 512H808L870 590" stroke-opacity=".48"/>
+  </g>
+  <g stroke="#f0eee7" stroke-opacity=".14">
+    <path d="M374 282H544M374 310H630M374 338H512M374 366H678M374 394H584"/>
+    <path d="M812 220V458M848 250V490M884 286V524"/>
+    <path d="M138 266H220M116 326H220M154 386H220"/>
+  </g>
+  <g fill="#c8ff4d">
+    <circle cx="374" cy="282" r="3"/><circle cx="630" cy="310" r="3"/><circle cx="678" cy="366" r="3"/>
+    <circle cx="812" cy="220" r="4"/><circle cx="848" cy="250" r="3"/><circle cx="884" cy="286" r="2"/>
+    <circle cx="138" cy="266" r="3"/><circle cx="116" cy="326" r="3"/><circle cx="154" cy="386" r="3"/>
+  </g>
+  <path d="M336 450H716" stroke="#c8ff4d" stroke-opacity=".34"/>
+</svg>
