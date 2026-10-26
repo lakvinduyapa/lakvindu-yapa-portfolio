@@ -103,6 +103,7 @@ export default function ProfilePortrait() {
 
     const onPointerDown = (event) => {
       if (event.pointerType === 'mouse' || !event.isPrimary || !ready) return
+      if (event.cancelable) event.preventDefault()
       activePointerId = event.pointerId
       gestureStart = { x: event.clientX, y: event.clientY, time: performance.now() }
       moved = false
@@ -120,6 +121,7 @@ export default function ProfilePortrait() {
     const onPointerMove = (event) => {
       if (event.pointerType !== 'mouse') {
         if (!dragging || event.pointerId !== activePointerId) return
+        if (event.cancelable) event.preventDefault()
         if (gestureStart && Math.hypot(event.clientX - gestureStart.x, event.clientY - gestureStart.y) > 7) moved = true
         place(event.clientX, event.clientY)
         return
@@ -176,6 +178,9 @@ export default function ProfilePortrait() {
       render()
     }
     const onBlur = () => {
+      if (activePointerId !== null && element.hasPointerCapture?.(activePointerId)) {
+        element.releasePointerCapture(activePointerId)
+      }
       dragging = false
       activePointerId = null
       pinned = false
@@ -218,8 +223,8 @@ export default function ProfilePortrait() {
     const onVisibility = () => { if (document.hidden) onBlur() }
 
     element.addEventListener('pointerenter', onPointerEnter)
-    element.addEventListener('pointerdown', onPointerDown)
-    element.addEventListener('pointermove', onPointerMove)
+    element.addEventListener('pointerdown', onPointerDown, { passive: false })
+    element.addEventListener('pointermove', onPointerMove, { passive: false })
     element.addEventListener('pointerup', onPointerUp)
     element.addEventListener('pointerleave', onPointerLeave)
     element.addEventListener('pointercancel', onPointerCancel)

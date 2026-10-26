@@ -11,6 +11,7 @@ export function useLenis() {
     let refreshFrame = 0
     let orientationTimer = 0
     let active = true
+    const visualViewport = window.visualViewport
 
     ScrollTrigger.config({ ignoreMobileResize: true })
 
@@ -29,6 +30,9 @@ export function useLenis() {
     })
     window.addEventListener('load', refresh, { once: true })
     window.addEventListener('orientationchange', refreshAfterRotation)
+    // ScrollTrigger ignores noisy mobile resize events globally. Refresh once Safari's
+    // visual viewport settles so pinned sections remain aligned after chrome changes.
+    visualViewport?.addEventListener('resize', refreshAfterRotation, { passive: true })
     document.fonts?.ready.then(() => { if (active) refresh() })
     refresh()
 
@@ -84,6 +88,7 @@ export function useLenis() {
       })
       window.removeEventListener('load', refresh)
       window.removeEventListener('orientationchange', refreshAfterRotation)
+      visualViewport?.removeEventListener('resize', refreshAfterRotation)
       window.removeEventListener('portfolio:navigate', navigateToSection)
       lenis?.destroy()
       if (update) gsap.ticker.remove(update)

@@ -12,6 +12,10 @@ export default function Story() {
   useLayoutEffect(() => {
     const media = gsap.matchMedia()
     const context = gsap.context(() => {
+      const track = section.current.querySelector('.story__track')
+      const finalStatement = section.current.querySelector('.story__final')
+      const storyWords = gsap.utils.toArray('.story__word', section.current)
+
       media.add('(min-width: 769px) and (prefers-reduced-motion: no-preference)', () => {
         const timeline = gsap.timeline({
           scrollTrigger: {
@@ -23,23 +27,24 @@ export default function Story() {
           },
         })
 
+        gsap.set(finalStatement, { autoAlpha: 0, y: 80 })
         words.forEach((_, index) => {
           timeline
             .fromTo(
-              `.story__word:nth-child(${index + 1})`,
-              { opacity: 0, yPercent: 60, scale: 0.82 },
-              { opacity: 1, yPercent: 0, scale: 1, duration: 0.45 },
+              storyWords[index],
+              { autoAlpha: 0, yPercent: 60, scale: 0.82 },
+              { autoAlpha: 1, yPercent: 0, scale: 1, duration: 0.45 },
             )
             .to(
-              `.story__word:nth-child(${index + 1})`,
-              { opacity: 0, yPercent: -60, scale: 1.1, duration: 0.45 },
+              storyWords[index],
+              { autoAlpha: 0, yPercent: -60, scale: 1.1, duration: 0.45 },
               '+=.18',
             )
         })
 
         timeline
-          .to('.story__final', { opacity: 1, y: 0, duration: 0.7 })
-          .to('.story__track', { opacity: 0, duration: 0.2 }, '<')
+          .to(finalStatement, { autoAlpha: 1, y: 0, duration: 0.7 })
+          .to(track, { autoAlpha: 0, duration: 0.2 }, '<')
       })
       media.add('(max-width: 768px) and (prefers-reduced-motion: no-preference)', () => {
         const timeline = gsap.timeline({
@@ -53,23 +58,25 @@ export default function Story() {
           },
         })
 
+        // The mobile statement remains in normal line flow; only its container moves.
+        gsap.set(finalStatement, { autoAlpha: 0, y: 52 })
         words.forEach((_, index) => {
           timeline
             .fromTo(
-              `.story__word:nth-child(${index + 1})`,
-              { opacity: 0, yPercent: 42, scale: 0.9 },
-              { opacity: 1, yPercent: 0, scale: 1, duration: 0.42, ease: 'power2.out' },
+              storyWords[index],
+              { autoAlpha: 0, yPercent: 42, scale: 0.9 },
+              { autoAlpha: 1, yPercent: 0, scale: 1, duration: 0.42, ease: 'power2.out' },
             )
             .to(
-              `.story__word:nth-child(${index + 1})`,
-              { opacity: 0, yPercent: -42, scale: 1.05, duration: 0.38, ease: 'power2.in' },
+              storyWords[index],
+              { autoAlpha: 0, yPercent: -42, scale: 1.05, duration: 0.38, ease: 'power2.in' },
               '+=.12',
             )
         })
 
         timeline
-          .to('.story__final', { opacity: 1, y: 0, duration: 0.65 })
-          .to('.story__track', { opacity: 0, duration: 0.18 }, '<')
+          .to(finalStatement, { autoAlpha: 1, y: 0, duration: 0.65 })
+          .to(track, { autoAlpha: 0, duration: 0.18 }, '<')
       })
     }, section)
 
@@ -85,7 +92,11 @@ export default function Story() {
       <div className="story__track" aria-hidden="true">
         {words.map((word) => <div className={`story__word story__word--${word.toLowerCase()}`} key={word}><small>I</small>{word}<em>.</em></div>)}
       </div>
-      <h2 className="story__final">I BUILD SOFTWARE<br />THAT CREATES<br /><i>REAL VALUE.</i></h2>
+      <h2 className="story__final">
+        <span>I BUILD</span>{' '}<span>SOFTWARE</span><br />
+        <span>THAT CREATES</span><br />
+        <i>REAL VALUE.</i>
+      </h2>
       <div className="story__index micro">01 — 04</div>
     </section>
   )

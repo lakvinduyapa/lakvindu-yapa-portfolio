@@ -10,7 +10,6 @@
   background: transparent;
   text-align: center;
   cursor: none;
-  touch-action: pan-y pinch-zoom;
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -23,6 +22,7 @@
   overflow: hidden;
   isolation: isolate;
   background: var(--ink);
+  -webkit-user-drag: none;
   /* Independent, broad edge fades avoid an enclosing oval around the subject. */
   -webkit-mask-image:
     linear-gradient(to right, transparent, rgba(0,0,0,.22) 5%, rgba(0,0,0,.65) 13%, #000 28%, #000 72%, rgba(0,0,0,.65) 87%, rgba(0,0,0,.22) 95%, transparent),
@@ -95,14 +95,17 @@
     width: 4px;
     height: 4px;
     margin: -2px 0 0 -2px;
-    background: rgba(200,255,77,.65);
-    box-shadow: 0 0 8px rgba(200,255,77,.12);
+    background: var(--paper);
+    box-shadow: 0 0 8px rgba(240,238,231,.22);
   }
   body:has(.portrait:hover) .cursor span { opacity: 0; }
 }
 
 @media (hover: none), (pointer: coarse) {
   .portrait { cursor: pointer; }
+  /* This is the only area that owns a touch gesture; the rest of About still scrolls. */
+  .portrait__composition { touch-action: none; overscroll-behavior: contain; }
+  .portrait__composition img { -webkit-user-drag: none; user-drag: none; }
   .portrait[data-dragging='true'] { cursor: grabbing; }
   .portrait__hint-hover { display: none; }
   .portrait__hint-touch { display: inline; }
