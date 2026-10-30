@@ -82,7 +82,7 @@ export default function LiyaSaviCaseStudy({ project }) {
   return (
     <article className="liya-case" ref={root} aria-labelledby="liya-case-title">
       <header className="liya-case__opening">
-        <div className="liya-case__index micro">PROJECT / 02</div>
+        <div className="liya-case__index micro">PROJECT / 03</div>
         <h3 id="liya-case-title">LIYA <i>SAVI</i></h3>
         <div className="liya-case__summary">
           <p className="micro">WOMEN EMPOWERMENT MARKETPLACE</p>

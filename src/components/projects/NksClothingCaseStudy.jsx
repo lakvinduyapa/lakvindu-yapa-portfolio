@@ -105,7 +105,7 @@ export default function NksClothingCaseStudy({ project }) {
   return (
     <article className="nks-case" ref={root} aria-labelledby="nks-case-title">
       <header className="nks-case__opening">
-        <div className="nks-case__index micro">PROJECT / 03</div>
+        <div className="nks-case__index micro">PROJECT / 04</div>
         <h3 id="nks-case-title">NKS <i>CLOTHING</i></h3>
         <div className="nks-case__summary">
           <p className="micro">FREELANCE <span>·</span> FULL-STACK <span>·</span> E-COMMERCE</p>
@@ -174,7 +174,7 @@ export default function NksClothingCaseStudy({ project }) {
 
       <section className="nks-case__details" aria-label="NKS Clothing project details">
         <div className="nks-case__description">
-          <p className="micro">PROJECT DETAILS / 03</p>
+          <p className="micro">PROJECT DETAILS / 04</p>
           <p>{project.description}</p>
         </div>
         <dl className="nks-case__facts">

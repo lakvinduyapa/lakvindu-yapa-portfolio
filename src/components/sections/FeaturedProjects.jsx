@@ -8,6 +8,7 @@ import { projects } from '../../data/projects'
 import ProjectCaseStudy from '../projects/ProjectCaseStudy'
 import LiyaSaviCaseStudy from '../projects/LiyaSaviCaseStudy'
 import NksClothingCaseStudy from '../projects/NksClothingCaseStudy'
+import CinnamonCareCaseStudy from '../projects/CinnamonCareCaseStudy'
 import SectionLabel from '../ui/SectionLabel'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -40,6 +41,7 @@ export default function FeaturedProjects() {
       </div>
       <div className="projects">
         <ProjectCaseStudy project={projects[0]} />
+        <CinnamonCareCaseStudy project={projects[2]} />
         <LiyaSaviCaseStudy project={projects[3]} />
         <NksClothingCaseStudy project={projects[1]} />
       </div>
