@@ -15,9 +15,9 @@ export const projects = [
     status: 'Completed',
     role: 'Solo Full-Stack Developer',
     description:
-      'Designed and developed a full-stack LMS that brings student management, courses, lessons, assignments, learning activities and academic operations into one centralized platform.',
+      'Built a learning management system for managing students, courses, lessons, assignments, learning activities, and administrative work.',
     context:
-      'A real client-requested platform for managing and delivering educational content in a private tuition environment.',
+      'A client project for managing and delivering educational content in a private tuition setting.',
     problem: null,
     solution: null,
     features: ['Student Management', 'Courses & Lessons', 'Assignments', 'Learning Activities', 'Progress Tracking', 'Admin Operations'],
@@ -44,7 +44,7 @@ export const projects = [
     status: 'Ongoing Development',
     role: 'Solo Full-Stack Developer',
     description:
-      'A clothing showcase and ordering platform developed for a European startup clothing brand. Customers can explore the collection and place orders through WhatsApp, while the owner manages products, inventory and sales through an administrative dashboard.',
+      'An online clothing store for a European startup brand. Customers can browse products and order through WhatsApp, while the owner manages products, stock, and sales through an admin dashboard.',
     context: 'A solo freelance project requested by a client.',
     problem: null,
     solution: null,
@@ -69,9 +69,9 @@ export const projects = [
     status: 'Completed',
     role: 'Full-Stack Developer & AI Integration Engineer',
     description:
-      'CinnamonCare is an AI-powered agricultural platform combining cinnamon plant disease identification with multilingual information, interactive geographical visualization, agricultural e-commerce, and conversational assistance.',
+      'A web platform for cinnamon plant disease identification, disease information, mapping, related products, multilingual support, and AI assistance.',
     context:
-      'A full-stack AgriTech application connecting image-based diagnosis workflows, geographical insights, multilingual information, agricultural commerce, and conversational assistance.',
+      'A full-stack AgriTech application that connects image-based diagnosis workflows with disease information, maps, products, and admin tools.',
     problem: null,
     solution: null,
     features: ['Disease Classification', 'Diagnosis History', 'Disease Mapping', 'Agricultural Commerce', 'Three Languages', 'AI Assistant'],
@@ -96,9 +96,9 @@ export const projects = [
     status: 'Completed',
     role: 'Solo Full-Stack Developer',
     description:
-      'Liya Savi is a multilingual marketplace platform designed to help women entrepreneurs in Sri Lanka create digital storefronts, showcase their products and extend their potential market reach beyond traditional local channels.',
+      'A multilingual marketplace where women entrepreneurs in Sri Lanka can create digital storefronts and showcase their products online.',
     context:
-      'Developed as a final-year university project, informed by research into market visibility and access challenges affecting women entrepreneurs in Sri Lanka, including context associated with the Sri Jayawardenepura Kotte Divisional Secretariat.',
+      'Developed as a final-year university project, informed by research into the challenges women entrepreneurs face when presenting products online.',
     problem: null,
     solution: null,
     features: [],

@@ -6,7 +6,7 @@ export const experience = [
     company: 'SLT Telecom Headquarters',
     detail: 'Digital Platforms Division · Colombo, Sri Lanka',
     description:
-      'Contributing to the design and development of internal digital platforms for Sri Lanka Telecom, including systems intended for broad organizational use.',
+      'Supporting the design and development of internal digital platforms for Sri Lanka Telecom as part of the Digital Platforms Division.',
     projects: [
       'Digital Queue Management System',
       'Complaint & Concern Reporting Portal',

@@ -42,12 +42,12 @@ export default function Contact() {
   return (
     <section className="contact section" id="contact" ref={section}>
       <div className="shell">
-        <SectionLabel index="05">CONTACT / START A CONVERSATION</SectionLabel>
-        <div className="contact__status micro"><span className="status-dot" /> OPEN TO THE RIGHT CONVERSATIONS</div>
+        <SectionLabel index="05">CONTACT / GET IN TOUCH</SectionLabel>
+        <div className="contact__status micro"><span className="status-dot" /> OPEN TO OPPORTUNITIES AND PROJECTS</div>
         <ul className="contact__availability micro" aria-label="Open to">
           {profile.availability.map((item) => <li key={item}>{item}</li>)}
         </ul>
-        <h2>LET’S BUILD<br />SOMETHING<br /><i>MEANINGFUL.</i></h2>
+        <h2>LET’S TALK<br />ABOUT YOUR<br /><i>PROJECT.</i></h2>
         <a className="contact__email interactive" href={profile.contact.mailto}>
           {profile.contact.email} <ArrowUpRight aria-hidden="true" />
         </a>

@@ -15,9 +15,9 @@ export const profile = {
     label: 'Colombo, Sri Lanka',
   },
   summary:
-    "I'm a Software Engineer focused on building practical, modern digital products across web, mobile, full-stack and AI-driven development. I value clear communication, reliable delivery and continuous learning, and I'm open to software engineering opportunities, freelance collaborations and business opportunities locally and globally.",
+    "I'm a software engineer who enjoys building practical web applications and software systems. I've worked on full-stack projects, admin tools, and AI-integrated applications, and I like being involved from planning and development through testing and improvement. I'm open to software engineering roles, freelance work, and collaborations.",
   supportingStatement:
-    'Building modern software, intelligent systems and meaningful digital products.',
+    'I build web applications, full-stack systems, and AI-integrated software.',
   currentContext: {
     company: 'Sri Lanka Telecom',
     shortCompany: 'SLT Telecom HQ',
@@ -44,11 +44,11 @@ export const profile = {
     'Local & Global',
   ],
   professionalValues: [
-    'Reliable Delivery',
+    'Reliable Work',
     'Punctuality',
     'Clear Communication',
     'Continuous Learning',
-    'Practical Problem Solving',
+    'Problem Solving',
   ],
   cv: {
     href: null,

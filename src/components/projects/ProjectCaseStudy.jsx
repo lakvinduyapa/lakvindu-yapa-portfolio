@@ -102,33 +102,33 @@ export default function ProjectCaseStudy({ project }) {
         </div>
       </header>
 
-      <p className="lms-case__chapter-marker micro">CHAPTER 01 / PUBLIC PRODUCT EXPERIENCE</p>
+      <p className="lms-case__chapter-marker micro">CHAPTER 01 / STUDENT LEARNING EXPERIENCE</p>
       <figure className="lms-case__primary">
         <div className="lms-case__screen lms-case__screen--landing">
           <img src={landing.src} alt={landing.alt} width="1906" height="953" loading="lazy" decoding="async" />
         </div>
-        <figcaption className="lms-case__caption micro"><span>PUBLIC PRODUCT EXPERIENCE</span><span>WEB APPLICATION / LMS</span></figcaption>
+        <figcaption className="lms-case__caption micro"><span>STUDENT LEARNING PORTAL</span><span>WEB APPLICATION / LMS</span></figcaption>
       </figure>
 
       <section className="lms-case__admin" aria-labelledby="lms-admin-title">
         <div className="lms-case__admin-copy">
           <p className="micro">CHAPTER 02 / PLATFORM OPERATIONS</p>
-          <h4 id="lms-admin-title">ADMIN<br /><i>EXPERIENCE.</i></h4>
-          <p>The operational side of the platform brings academic administration into the same system.</p>
+          <h4 id="lms-admin-title">ADMIN<br /><i>DASHBOARD.</i></h4>
+          <p>Administrators can manage the day-to-day academic work from the same platform.</p>
         </div>
         <figure className="lms-case__admin-visual">
           <div className="lms-case__screen lms-case__screen--admin">
             <img src={admin.src} alt={admin.alt} width="1921" height="953" loading="lazy" decoding="async" />
           </div>
-          <figcaption className="micro">ADMIN DASHBOARD / PLATFORM OPERATIONS</figcaption>
+          <figcaption className="micro">ADMIN DASHBOARD</figcaption>
         </figure>
       </section>
 
       <section className="lms-case__capabilities" aria-labelledby="lms-capabilities-title">
         <header className="lms-case__capabilities-heading">
           <p className="micro">CHAPTER 03 / PLATFORM CAPABILITIES / LMS</p>
-          <h4 id="lms-capabilities-title">BEYOND THE<br /><i>DASHBOARD.</i></h4>
-          <p>A closer look at the management tools and learning workflows that power the platform.</p>
+          <h4 id="lms-capabilities-title">COURSES, BATCHES<br /><i>&amp; LESSONS.</i></h4>
+          <p>Tools for managing course content, student batches, and learning materials.</p>
         </header>
 
         <div className="lms-case__capability-pair lms-case__capability-pair--management">
@@ -159,7 +159,7 @@ export default function ProjectCaseStudy({ project }) {
         <div className="lms-case__backup-copy">
           <p className="micro">CHAPTER 04 / SUPPORTING CAPABILITY / LMS</p>
           <h4 id="lms-backup-title">BACKUP<br /><i>&amp; RESTORE.</i></h4>
-          <p>Protecting the learning platform means keeping recovery within reach. The system supports local backups and restores, alongside online database backup and restore workflows, helping preserve important academic data and reduce disruption when systems need to be recovered.</p>
+          <p>The system includes local and online backup and restore workflows to help recover important academic data when needed.</p>
         </div>
         <figure className="lms-case__backup-visual">
           <div className="lms-case__screen"><img src={lmsBackupRestore} alt="LMS backup and restore interface" width="1920" height="1080" loading="lazy" decoding="async" /></div>

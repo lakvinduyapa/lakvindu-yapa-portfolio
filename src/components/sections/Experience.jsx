@@ -95,7 +95,7 @@ export default function Experience() {
       </div>
       <SectionLabel index="04">EXPERIENCE / EDUCATION</SectionLabel>
       <div className="experience__layout">
-        <h2>WHERE I’VE<br />BEEN <i>&</i><br />WHAT’S NEXT.</h2>
+        <h2>EXPERIENCE<br /><i>&</i><br />EDUCATION.</h2>
         <div className="timeline">
           <div className="timeline__rail" aria-hidden="true"><span className="timeline__progress" /></div>
           {experience.map((item) => (

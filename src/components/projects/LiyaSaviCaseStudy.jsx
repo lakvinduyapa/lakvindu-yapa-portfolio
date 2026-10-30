@@ -85,7 +85,7 @@ export default function LiyaSaviCaseStudy({ project }) {
         <div className="liya-case__index micro">PROJECT / 03</div>
         <h3 id="liya-case-title">LIYA <i>SAVI</i></h3>
         <div className="liya-case__summary">
-          <p className="micro">WOMEN EMPOWERMENT MARKETPLACE</p>
+          <p className="micro">MULTILINGUAL MARKETPLACE</p>
           <p className="micro">UNIVERSITY PROJECT <span>·</span> FULL-STACK <span>·</span> COMPLETED</p>
           <p>{project.description}</p>
         </div>
@@ -95,7 +95,7 @@ export default function LiyaSaviCaseStudy({ project }) {
         <div className="liya-case__section-heading">
           <p className="micro">CHAPTER 01 / MARKETPLACE EXPERIENCE</p>
           <h4 id="liya-landing-title">A DIGITAL<br /><i>STOREFRONT.</i></h4>
-          <p>From the first welcome to the first product discovery, Liya Savi gives women entrepreneurs an accessible place to be seen.</p>
+          <p>Liya Savi gives women entrepreneurs a place to present their products through digital storefronts.</p>
         </div>
         <div className="liya-case__landing-images">
           <figure className="liya-case__image-card liya-case__image-card--first">
@@ -112,17 +112,17 @@ export default function LiyaSaviCaseStudy({ project }) {
       <section className="liya-case__discovery" aria-labelledby="liya-discovery-title">
         <div className="liya-case__discovery-copy">
           <p className="micro">CHAPTER 02 / PRODUCT DISCOVERY</p>
-          <h4 id="liya-discovery-title">FIND<br /><i>WITH INTENT.</i></h4>
-          <p>The catalogue keeps the marketplace open and legible. A product view then narrows the experience into a considered buying moment.</p>
+          <h4 id="liya-discovery-title">PRODUCT<br /><i>DISCOVERY.</i></h4>
+          <p>Customers can browse the catalogue and open product pages for more detail.</p>
         </div>
         <div className="liya-case__discovery-visual">
           <figure className="liya-case__catalogue">
             <img src={catalogue.src} alt={catalogue.alt} width="1920" height="1080" loading="lazy" decoding="async" />
-            <figcaption className="micro">PRODUCT CATALOGUE / PRIMARY DISCOVERY</figcaption>
+            <figcaption className="micro">PRODUCT CATALOGUE</figcaption>
           </figure>
           <figure className="liya-case__product-view">
             <img src={productView.src} alt={productView.alt} width="1920" height="1080" loading="lazy" decoding="async" />
-            <figcaption className="micro">PRODUCT VIEW / DETAIL</figcaption>
+            <figcaption className="micro">PRODUCT DETAILS</figcaption>
           </figure>
         </div>
       </section>
@@ -130,8 +130,8 @@ export default function LiyaSaviCaseStudy({ project }) {
       <section className="liya-case__admin" aria-labelledby="liya-admin-title">
         <div className="liya-case__admin-copy">
           <p className="micro">CHAPTER 03 / PLATFORM OPERATIONS</p>
-          <h4 id="liya-admin-title">BUILT TO<br /><i>OPERATE.</i></h4>
-          <p>Behind the storefront, administrative tools support product management and the ongoing work of running the marketplace.</p>
+          <h4 id="liya-admin-title">ADMIN<br /><i>MANAGEMENT.</i></h4>
+          <p>The admin area supports product management and other marketplace tasks.</p>
         </div>
         <div className="liya-case__admin-visuals">
           <figure className="liya-case__admin-visual">

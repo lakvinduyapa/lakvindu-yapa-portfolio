@@ -34,10 +34,10 @@ export default function FeaturedProjects() {
       <div className="work__art section-art" aria-hidden="true">
         <img src={workSystem} srcSet={`${workSystemSmall} 640w, ${workSystem} 1200w`} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1040px" width="1200" height="800" alt="" loading="lazy" decoding="async" />
       </div>
-      <SectionLabel index="02">SELECTED WORK / CLIENT + INDEPENDENT</SectionLabel>
+      <SectionLabel index="02">SELECTED PROJECTS / CLIENT + INDEPENDENT</SectionLabel>
       <div className="work__intro">
-        <h2><span className="work__title-line"><span>BUILT</span>{' '}<span>TO WORK.</span></span><i>DESIGNED TO MATTER.</i></h2>
-        <p>Selected work across client delivery, commerce, education, multilingual systems and AI integration.</p>
+        <h2><span className="work__title-line"><span>MY</span>{' '}<span>WORK.</span></span><i>SELECTED PROJECTS.</i></h2>
+        <p>Client and independent work across education, commerce, multilingual systems, and AI integration.</p>
       </div>
       <div className="projects">
         <ProjectCaseStudy project={projects[0]} />

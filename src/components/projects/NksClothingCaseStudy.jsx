@@ -110,7 +110,7 @@ export default function NksClothingCaseStudy({ project }) {
         <div className="nks-case__summary">
           <p className="micro">FREELANCE <span>·</span> FULL-STACK <span>·</span> E-COMMERCE</p>
           <p className="micro"><span className="nks-case__status-dot" /> ONGOING DEVELOPMENT</p>
-          <p>A modern clothing storefront combining an accessible shopping experience with practical administrative tools for a growing fashion brand.</p>
+          <p>An online clothing store where customers can browse products and place orders through WhatsApp.</p>
         </div>
       </header>
 
@@ -118,8 +118,8 @@ export default function NksClothingCaseStudy({ project }) {
         <section className="nks-case__storefront" aria-labelledby="nks-storefront-title">
           <div className="nks-case__chapter-heading">
             <p className="micro">CHAPTER 01 / STOREFRONT EXPERIENCE</p>
-            <h4 id="nks-storefront-title">THE COLLECTION<br /><i>IN MOTION.</i></h4>
-            <p>Connected storefront views make the collection easy to browse while keeping the visual language of the fashion brand present throughout the journey.</p>
+            <h4 id="nks-storefront-title">CLOTHING<br /><i>STOREFRONT.</i></h4>
+            <p>A customer-facing storefront for browsing the brand's clothing collection.</p>
           </div>
           <figure className="nks-case__primary">
             <NksImage src={landingOne} alt="NKS Clothing storefront landing page" dimensions={imageDimensions.landingOne} />
@@ -134,8 +134,8 @@ export default function NksClothingCaseStudy({ project }) {
         <section className="nks-case__product" aria-labelledby="nks-product-title">
           <div className="nks-case__chapter-heading nks-case__chapter-heading--product">
             <p className="micro">CHAPTER 02 / CUSTOMER EXPERIENCE / PRODUCT DISCOVERY</p>
-            <h4 id="nks-product-title">EXPLORE THE<br /><i>COLLECTION.</i></h4>
-            <p>A focused product-browsing experience designed to help customers explore clothing items and their details before ordering.</p>
+            <h4 id="nks-product-title">PRODUCT<br /><i>DETAILS.</i></h4>
+            <p>Customers can view product details before placing an order through WhatsApp.</p>
           </div>
           <figure className="nks-case__product-visual">
             <NksImage src={productPage} alt="NKS Clothing product page" dimensions={imageDimensions.productPage} />
@@ -146,8 +146,8 @@ export default function NksClothingCaseStudy({ project }) {
         <section className="nks-case__management" aria-labelledby="nks-management-title">
           <div className="nks-case__chapter-heading">
             <p className="micro">CHAPTER 03 / ADMIN EXPERIENCE / STORE MANAGEMENT</p>
-            <h4 id="nks-management-title">BEHIND THE<br /><i>STOREFRONT.</i></h4>
-            <p>The administrative workspace supports the practical work of managing products and their available colours.</p>
+            <h4 id="nks-management-title">PRODUCT<br /><i>MANAGEMENT.</i></h4>
+            <p>The admin workspace is used to manage products and their available colours.</p>
           </div>
           <figure className="nks-case__management-visual nks-case__management-visual--primary">
             <NksImage src={adminProducts} alt="NKS Clothing admin product management interface" dimensions={imageDimensions.adminProducts} />
@@ -162,12 +162,12 @@ export default function NksClothingCaseStudy({ project }) {
         <section className="nks-case__inventory" aria-labelledby="nks-inventory-title">
           <div className="nks-case__chapter-heading">
             <p className="micro">CHAPTER 04 / ADMIN EXPERIENCE / INVENTORY OPERATIONS</p>
-            <h4 id="nks-inventory-title">CONTROL BEHIND<br /><i>EVERY ORDER.</i></h4>
-            <p>Supporting operational views keep stock history and returns management close to the day-to-day work of the store.</p>
+            <h4 id="nks-inventory-title">STOCK AND<br /><i>RETURNS.</i></h4>
+            <p>Supporting admin views keep stock history and returns management in one place.</p>
           </div>
           <div className="nks-case__inventory-pair">
             <figure className="nks-case__inventory-visual"><NksImage src={stockHistory} alt="NKS Clothing stock history interface" dimensions={imageDimensions.stockHistory} /><figcaption className="micro">INVENTORY / STOCK HISTORY</figcaption></figure>
-            <figure className="nks-case__inventory-visual"><NksImage src={returnsMenu} alt="NKS Clothing returns management interface" dimensions={imageDimensions.returnsMenu} /><figcaption className="micro">OPERATIONS / RETURNS MANAGEMENT</figcaption></figure>
+            <figure className="nks-case__inventory-visual"><NksImage src={returnsMenu} alt="NKS Clothing returns management interface" dimensions={imageDimensions.returnsMenu} /><figcaption className="micro">RETURNS MANAGEMENT</figcaption></figure>
           </div>
         </section>
       </section>
